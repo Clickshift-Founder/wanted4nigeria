@@ -1712,49 +1712,75 @@ export default function Home() {
         }
         .footer-links a:hover { color: var(--white); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-          .hero { padding-top: 75%; }
-          .hero-title { font-size: 52px; }
+       /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .hero { padding-top: 75%; }
+        .hero-title { font-size: 52px; }
 
-          .campaign-inner {
-            grid-template-columns: 1fr;
-            gap: 40px;
-          }
-          .campaign { padding: 48px 20px; }
-
-          .scoreboard-inner {
-            gap: 24px;
-          }
-          .score-number { font-size: 56px; }
-          .score-target { font-size: 38px; }
-
-          .form-section { padding: 40px 16px 60px; }
-          .form-row { grid-template-columns: 1fr; gap: 20px; }
-          .form-header { flex-direction: column; align-items: flex-start; }
-          .form-toggle-btn { font-size: 12px; padding: 7px 12px; }
-
-          .card-display {
-            grid-template-columns: 1fr;
-            gap: 24px;
-          }
-          .card-img { max-width: 100%; }
-
-          .footer-inner { flex-direction: column; align-items: flex-start; }
-          .footer-links { flex-wrap: wrap; gap: 16px; }
-
-          .nav-wanted { font-size: 14px; }
-
-          .checkbox-grid { grid-template-columns: 1fr 1fr; }
+        .campaign {
+          padding: 40px 20px;
+        }
+        .campaign-inner {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .campaign-heading {
+          font-size: 32px;
+        }
+        .campaign-text {
+          order: 1;
+        }
+        .campaign-ctas {
+          order: 2;
+          width: 100%;
+        }
+        .cta-btn {
+          padding: 18px 20px;
+        }
+        .cta-btn-title {
+          font-size: 20px;
+        }
+        .cta-btn-sub {
+          font-size: 12px;
         }
 
-        @media (max-width: 480px) {
-          .hero-title { font-size: 42px; }
-          .campaign-heading { font-size: 30px; }
-          .score-number { font-size: 48px; }
-          .checkbox-grid { grid-template-columns: 1fr; }
-          .cta-btn-title { font-size: 18px; }
+        .scoreboard-inner {
+          gap: 24px;
         }
+        .score-number { font-size: 56px; }
+        .score-target { font-size: 38px; }
+
+        .form-section { padding: 40px 16px 60px; }
+        .form-row { grid-template-columns: 1fr; gap: 20px; }
+        .form-header { flex-direction: column; align-items: flex-start; }
+        .form-toggle-btn { font-size: 12px; padding: 7px 12px; }
+
+        .card-display {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .card-img { max-width: 100%; }
+
+        .footer-inner { flex-direction: column; align-items: flex-start; }
+        .footer-links { flex-wrap: wrap; gap: 16px; }
+
+        .nav-wanted { font-size: 14px; }
+
+        .checkbox-grid { grid-template-columns: 1fr 1fr; }
+
+        .card-action-buttons {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title { font-size: 42px; }
+        .campaign-heading { font-size: 28px; }
+        .score-number { font-size: 48px; }
+        .checkbox-grid { grid-template-columns: 1fr; }
+        .cta-btn-title { font-size: 18px; }
+        .card-action-buttons { grid-template-columns: 1fr; }
+      }
       `}</style>
     </>
   );
