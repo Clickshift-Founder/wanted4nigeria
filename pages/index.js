@@ -1507,24 +1507,29 @@ export default function Home() {
         /* SUBMIT BUTTON */
         .submit-btn {
           width: 100%;
-          padding: 18px 32px;
+          padding: 20px 32px;
           background: var(--red);
-          color: var(--white);
+          color: #FFFFFF;
           font-family: var(--font-display);
-          font-size: 22px;
-          letter-spacing: 1px;
+          font-size: 24px;
+          letter-spacing: 2px;
           border: none;
           border-radius: 5px;
           cursor: pointer;
           transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+          text-transform: uppercase;
+          box-shadow: 0 4px 20px rgba(204,17,17,0.4);
         }
         .submit-btn:hover:not(:disabled) {
-          background: var(--red-dark);
-          transform: translateY(-1px);
-          box-shadow: 0 6px 24px rgba(204,17,17,0.35);
+          background: #991010;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(204,17,17,0.5);
+        }
+        .submit-btn:active:not(:disabled) {
+          transform: translateY(0);
         }
         .submit-btn:disabled {
-          opacity: 0.55;
+          opacity: 0.5;
           cursor: not-allowed;
         }
 
@@ -1584,30 +1589,31 @@ export default function Home() {
           text-transform: uppercase;
         }
         .card-action-buttons {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           gap: 10px;
         }
         .share-btn {
           display: flex;
           align-items: center;
-          gap: 12px;
-          padding: 12px 18px;
+          justify-content: center;
+          gap: 8px;
+          padding: 13px 16px;
           border-radius: 5px;
-          border: 1px solid var(--border);
-          background: var(--bg-3);
-          color: var(--white);
+          border: none;
           font-family: var(--font-ui);
           font-size: 14px;
-          font-weight: 400;
+          font-weight: 600;
+          letter-spacing: 0.5px;
           cursor: pointer;
-          transition: all 0.15s;
+          transition: opacity 0.15s, transform 0.1s;
         }
-        .share-btn:hover { background: var(--bg-4); border-color: rgba(255,255,255,0.15); }
-        .share-btn.whatsapp:hover { border-color: #25D366; color: #25D366; }
-        .share-btn.twitter:hover { border-color: #1DA1F2; color: #1DA1F2; }
-        .share-btn.telegram:hover { border-color: #0088cc; color: #0088cc; }
-        .share-btn.download:hover { border-color: var(--gold); color: var(--gold); }
+        .share-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+        .share-btn:active { transform: translateY(0); }
+        .share-btn.whatsapp { background: #25D366; color: #000; }
+        .share-btn.twitter  { background: #000000; color: #fff; border: 1px solid #333; }
+        .share-btn.telegram { background: #0088cc; color: #fff; }
+        .share-btn.download { background: var(--gold); color: #000; }
 
         .card-next-action {
           margin-top: 8px;
