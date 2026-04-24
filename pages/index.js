@@ -335,7 +335,7 @@ async function generateWantedCard({ nomineeName, charge, comment }) {
 // MAIN PAGE COMPONENT
 // ─────────────────────────────────────────────
 
-const YOUTUBE_VIDEO_ID = 'La0KGHCx2Is';
+const YOUTUBE_VIDEO_ID = 'j6pwvLrZMVw';
 
 export default function Home() {
   // ── UI State ──
