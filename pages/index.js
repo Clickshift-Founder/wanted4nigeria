@@ -972,7 +972,6 @@ export default function Home() {
         </section>
       )}
 
-      {/* ── FOOTER ── */}
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-brand">
@@ -982,16 +981,26 @@ export default function Home() {
               <span style={{background:'#D4A017'}}></span>
               <span style={{background:'#1E55AA'}}></span>
             </div>
-            <div>
+            <div className="footer-brand-text">
               <div className="footer-school">School of Politics, Policy & Governance</div>
               <div className="footer-tag">#WantedForNigeria · Class of 2027</div>
+              <div className="footer-tagline">
+                Nigeria doesn't have a resource problem.<br />
+                It has a leadership problem.
+              </div>
             </div>
           </div>
           <div className="footer-links">
             <a href="https://thesppg.org" target="_blank" rel="noopener">thesppg.org</a>
-            <a href="https://nigeria.thesppg.org/apply" target="_blank" rel="noopener">Apply Now</a>
+            <a href="https://nigeria.thesppg.org/apply" target="_blank" rel="noopener">Apply Now →</a>
             <a href="https://twitter.com/thesppg" target="_blank" rel="noopener">@THESPPG</a>
           </div>
+        </div>
+        <div className="footer-bottom">
+          <div className="footer-copy">
+            © {new Date().getFullYear()} School of Politics, Policy & Governance. All rights reserved.
+          </div>
+          <div className="footer-hashtag">#WANTEDFORNIGERIA</div>
         </div>
       </footer>
 
@@ -1664,59 +1673,101 @@ export default function Home() {
           text-transform: none;
         }
 
-        /* FOOTER */
+       /* FOOTER */
         .footer {
-          background: var(--bg);
-          border-top: 1px solid var(--border);
-          padding: 40px 24px;
+          background: #080808;
+          border-top: 1px solid rgba(255,255,255,0.06);
+          padding: 56px 24px 32px;
         }
         .footer-inner {
           max-width: 1100px;
           margin: 0 auto;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 24px;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 48px;
+          align-items: start;
+          padding-bottom: 40px;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .footer-brand {
           display: flex;
-          align-items: center;
-          gap: 14px;
+          align-items: flex-start;
+          gap: 16px;
         }
         .footer-logo-blocks {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 2px;
-          width: 32px;
-          height: 32px;
-          border-radius: 5px;
+          width: 36px;
+          height: 36px;
+          border-radius: 6px;
           overflow: hidden;
+          flex-shrink: 0;
+          margin-top: 2px;
         }
         .footer-logo-blocks span { display: block; }
+        .footer-brand-text {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
         .footer-school {
           font-family: var(--font-ui);
-          font-size: 13px;
-          font-weight: 600;
+          font-size: 14px;
+          font-weight: 700;
           color: var(--white);
+          letter-spacing: 0.5px;
         }
         .footer-tag {
           font-family: var(--font-ui);
-          font-size: 11px;
+          font-size: 12px;
           color: var(--grey);
           letter-spacing: 1px;
         }
+        .footer-tagline {
+          font-family: var(--font-body);
+          font-size: 14px;
+          color: rgba(255,255,255,0.35);
+          margin-top: 8px;
+          line-height: 1.6;
+          max-width: 340px;
+        }
         .footer-links {
           display: flex;
-          gap: 24px;
+          flex-direction: column;
+          gap: 14px;
+          align-items: flex-end;
         }
         .footer-links a {
           font-family: var(--font-ui);
           font-size: 13px;
+          font-weight: 400;
           color: var(--grey);
           transition: color 0.2s;
+          letter-spacing: 0.5px;
         }
         .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+          max-width: 1100px;
+          margin: 24px auto 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .footer-copy {
+          font-family: var(--font-ui);
+          font-size: 11px;
+          color: rgba(255,255,255,0.2);
+          letter-spacing: 0.5px;
+        }
+        .footer-hashtag {
+          font-family: var(--font-display);
+          font-size: 16px;
+          color: var(--red);
+          letter-spacing: 1px;
+        }
 
        /* ── RESPONSIVE ── */
       @media (max-width: 768px) {
@@ -1786,6 +1837,21 @@ export default function Home() {
         .checkbox-grid { grid-template-columns: 1fr; }
         .cta-btn-title { font-size: 18px; }
         .card-action-buttons { grid-template-columns: 1fr; }
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .footer-links {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
       }
       `}</style>
     </>
