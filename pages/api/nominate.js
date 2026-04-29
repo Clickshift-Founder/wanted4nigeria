@@ -67,12 +67,12 @@ export default async function handler(req, res) {
     coreFields["Nominee's Phone number"] = nomineePhone.trim();
   }
   if (nominatorTypes && nominatorTypes.length > 0) {
-    coreFields["Which of this best describes you?"] = nominatorTypes;
+    coreFields["Please indicate if you are:"] = nominatorTypes;
   }
 
   // Optional charges comment — auto-retries without it if field name is wrong in Airtable.
   // To fix permanently: open Airtable → right-click the column → copy exact field name → update below.
-  const CHARGES_COMMENT_FIELD = "Comment on the charges";
+  const CHARGES_COMMENT_FIELD = "Explain further why you gave the charges";
   const optionalComment = chargesComment && chargesComment.trim()
     ? { [CHARGES_COMMENT_FIELD]: chargesComment.trim() }
     : {};
