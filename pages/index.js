@@ -186,12 +186,7 @@ export default function Home() {
       <nav className="nav">
         <div className="nav-inner">
           <a href="/" className="nav-brand">
-            <div className="nav-logo-blocks">
-              <span style={{background:'#CC1111'}}></span>
-              <span style={{background:'#1A7A3C'}}></span>
-              <span style={{background:'#D4A017'}}></span>
-              <span style={{background:'#1E55AA'}}></span>
-            </div>
+            <img src="/sppg-logo.jpg" alt="SPPG" className="nav-logo-img" />
             <div className="nav-title">
               <span className="nav-sppg">SPPG</span>
               <span className="nav-wanted">#WANTED FOR NIGERIA</span>
@@ -299,7 +294,9 @@ export default function Home() {
           />
         </div>
         <div className="scoreboard-pct">
-          {((score.applications / 1000) * 100).toFixed(1)}% of the way there
+          <span className="scoreboard-remaining">{Math.max(0, 1000 - score.applications).toLocaleString()} to go</span>
+          <span className="scoreboard-dot">·</span>
+          <span>{((score.applications / 1000) * 100).toFixed(1)}% of the way there</span>
         </div>
       </section>
 
@@ -584,29 +581,44 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="footer">
-        <div className="footer-inner">
-          <div className="footer-brand">
-            <div className="footer-logo-blocks">
-              <span style={{background:'#CC1111'}}></span>
-              <span style={{background:'#1A7A3C'}}></span>
-              <span style={{background:'#D4A017'}}></span>
-              <span style={{background:'#1E55AA'}}></span>
-            </div>
+        <div className="footer-top">
+          <div className="footer-brand-col">
+            <img src="/sppg-logo.jpg" alt="SPPG" className="footer-logo-img" />
             <div className="footer-brand-text">
               <div className="footer-school">School of Politics, Policy &amp; Governance</div>
               <div className="footer-tag">#WantedForNigeria &middot; Class of 2027</div>
-              <div className="footer-tagline">
-                Nigeria doesn&apos;t have a resource problem.<br />
-                It has a leadership problem.
-              </div>
             </div>
           </div>
-          <div className="footer-links">
-            <a href="https://thesppg.org" target="_blank" rel="noopener">thesppg.org</a>
-            <a href="https://nigeria.thesppg.org/apply" target="_blank" rel="noopener">Apply Now &rarr;</a>
-            <a href="https://twitter.com/thesppg" target="_blank" rel="noopener">@THESPPG</a>
+
+          <div className="footer-middle-col">
+            <div className="footer-col-label">The Mission</div>
+            <p className="footer-mission">
+              Nigeria doesn&apos;t have a resource problem.<br />It has a leadership problem.
+            </p>
+            <p className="footer-scholarship">
+              40% scholarships available &mdash; don&apos;t let funding be the reason Nigeria loses you.
+            </p>
+          </div>
+
+          <div className="footer-right-col">
+            <div className="footer-col-label">Quick Links</div>
+            <nav className="footer-nav">
+              <a href="https://thesppg.org" target="_blank" rel="noopener">thesppg.org</a>
+              <a href="https://nigeria.thesppg.org/apply" target="_blank" rel="noopener">Apply for Class of 2027</a>
+              <a href="https://twitter.com/thesppg" target="_blank" rel="noopener">Twitter / X</a>
+              <a href="https://instagram.com/thesppg" target="_blank" rel="noopener">Instagram</a>
+            </nav>
+            <a
+              href="https://nigeria.thesppg.org/apply"
+              target="_blank"
+              rel="noopener"
+              className="footer-apply-btn"
+            >
+              Apply Now &rarr;
+            </a>
           </div>
         </div>
+
         <div className="footer-bottom">
           <div className="footer-copy">
             &copy; {new Date().getFullYear()} School of Politics, Policy &amp; Governance. All rights reserved.
@@ -624,9 +636,9 @@ export default function Home() {
           --gold:#D4A017; --gold-light:#F0BB2A;
           --white:#F5F5F0; --grey:#888888; --grey-light:#BBBBBB;
           --border:rgba(255,255,255,0.08);
-          --font-display:'Bebas Neue',Impact,'Arial Narrow',sans-serif;
-          --font-ui:'Oswald','Arial Narrow',sans-serif;
-          --font-body:'Lora',Georgia,serif;
+          --font-display:'Nunito',900,'Bebas Neue',Impact,'Arial Narrow',sans-serif;
+          --font-ui:'Nunito','Helvetica Neue',Helvetica,Arial,sans-serif;
+          --font-body:'Nunito','Helvetica Neue',Helvetica,Arial,sans-serif;
         }
         html { scroll-behavior: smooth; }
         body { background:var(--bg); color:var(--white); font-family:var(--font-body); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
@@ -641,6 +653,7 @@ export default function Home() {
         .nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,10,10,0.94); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.06); }
         .nav-inner { max-width:1200px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; justify-content:space-between; }
         .nav-brand { display:flex; align-items:center; gap:12px; }
+        .nav-logo-img { height:40px; width:auto; object-fit:contain; flex-shrink:0; }
         .nav-logo-blocks { display:grid; grid-template-columns:1fr 1fr; gap:2px; width:30px; height:30px; border-radius:4px; overflow:hidden; flex-shrink:0; }
         .nav-logo-blocks span { display:block; }
         .nav-title { display:flex; flex-direction:column; line-height:1.1; }
@@ -698,7 +711,9 @@ export default function Home() {
         .score-target { font-family:var(--font-display); font-size:clamp(40px,6vw,64px); color:var(--gold); line-height:1.1; }
         .scoreboard-bar { max-width:600px; margin:0 auto 14px; height:5px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden; }
         .scoreboard-fill { height:100%; background:linear-gradient(to right,var(--red),var(--gold)); border-radius:3px; transition:width 1.2s ease; min-width:3px; }
-        .scoreboard-pct { font-family:var(--font-ui); font-size:12px; color:var(--grey); letter-spacing:1px; }
+        .scoreboard-pct { font-family:var(--font-ui); font-size:13px; color:var(--grey); letter-spacing:1px; display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
+        .scoreboard-remaining { color:var(--white); font-weight:700; font-size:15px; }
+        .scoreboard-dot { color:var(--border); font-size:18px; }
 
         /* FORM SECTION */
         .form-section { background:var(--bg-2); border-top:1px solid var(--border); padding:72px 24px 88px; }
@@ -756,21 +771,42 @@ export default function Home() {
         .success-secondary-btn:hover { border-color:rgba(255,255,255,0.25); color:var(--white); }
 
         /* FOOTER */
-        .footer { background:#070707; border-top:1px solid rgba(255,255,255,0.06); padding:60px 24px 36px; }
-        .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:start; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,0.06); }
-        .footer-brand { display:flex; align-items:flex-start; gap:18px; }
-        .footer-logo-blocks { display:grid; grid-template-columns:1fr 1fr; gap:2px; width:38px; height:38px; border-radius:6px; overflow:hidden; flex-shrink:0; margin-top:3px; }
-        .footer-logo-blocks span { display:block; }
+        .footer { background:#080808; border-top:1px solid rgba(255,255,255,0.07); }
+        .footer-top {
+          max-width:1200px; margin:0 auto;
+          display:grid; grid-template-columns:260px 1fr 220px;
+          gap:64px; padding:72px 24px 64px; align-items:start;
+          border-bottom:1px solid rgba(255,255,255,0.06);
+        }
+        .footer-brand-col { display:flex; flex-direction:column; gap:16px; }
+        .footer-logo-img { height:48px; width:auto; object-fit:contain; }
         .footer-brand-text { display:flex; flex-direction:column; gap:4px; }
-        .footer-school { font-family:var(--font-ui); font-size:15px; font-weight:700; color:var(--white); letter-spacing:0.5px; }
+        .footer-school { font-family:var(--font-ui); font-size:14px; font-weight:700; color:var(--white); letter-spacing:0.3px; }
         .footer-tag { font-family:var(--font-ui); font-size:12px; color:var(--gold); letter-spacing:1px; }
-        .footer-tagline { font-family:var(--font-body); font-size:14px; color:rgba(255,255,255,0.3); margin-top:10px; line-height:1.65; max-width:360px; }
-        .footer-links { display:flex; flex-direction:column; gap:16px; align-items:flex-end; padding-top:4px; }
-        .footer-links a { font-family:var(--font-ui); font-size:13px; font-weight:500; color:var(--grey); transition:color 0.2s; letter-spacing:0.5px; }
-        .footer-links a:hover { color:var(--white); }
-        .footer-bottom { max-width:1100px; margin:28px auto 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+        .footer-col-label { font-family:var(--font-ui); font-size:10px; font-weight:700; letter-spacing:3px; color:var(--grey); text-transform:uppercase; margin-bottom:16px; }
+        .footer-middle-col { display:flex; flex-direction:column; }
+        .footer-mission { font-family:var(--font-body); font-size:15px; color:rgba(255,255,255,0.4); line-height:1.7; margin-bottom:12px; }
+        .footer-scholarship { font-family:var(--font-ui); font-size:13px; color:rgba(212,160,23,0.6); line-height:1.6; font-weight:300; }
+        .footer-right-col { display:flex; flex-direction:column; }
+        .footer-nav { display:flex; flex-direction:column; gap:12px; margin-bottom:24px; }
+        .footer-nav a { font-family:var(--font-ui); font-size:13px; color:var(--grey); transition:color 0.2s; letter-spacing:0.3px; }
+        .footer-nav a:hover { color:var(--white); }
+        .footer-apply-btn {
+          display:block; padding:12px 20px; background:var(--red);
+          color:var(--white); font-family:var(--font-ui); font-size:13px;
+          font-weight:700; letter-spacing:1px; text-transform:uppercase;
+          border-radius:4px; text-align:center;
+          transition:background 0.2s, transform 0.1s;
+          box-shadow:0 2px 12px rgba(204,17,17,0.3);
+        }
+        .footer-apply-btn:hover { background:var(--red-dark); transform:translateY(-1px); }
+        .footer-bottom {
+          max-width:1200px; margin:0 auto;
+          display:flex; justify-content:space-between; align-items:center;
+          padding:20px 24px; flex-wrap:wrap; gap:12px;
+        }
         .footer-copy { font-family:var(--font-ui); font-size:11px; color:rgba(255,255,255,0.18); letter-spacing:0.3px; }
-        .footer-hashtag { font-family:var(--font-display); font-size:18px; color:var(--red); letter-spacing:2px; }
+        .footer-hashtag { font-family:var(--font-display); font-size:20px; color:var(--red); letter-spacing:2px; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -794,9 +830,11 @@ export default function Home() {
           .form-row { grid-template-columns:1fr; gap:24px; }
           .checkbox-grid { grid-template-columns:1fr 1fr; }
           .success-screen { padding:32px 16px; }
-          .footer-inner { grid-template-columns:1fr; gap:36px; }
-          .footer-links { align-items:flex-start; flex-direction:row; flex-wrap:wrap; gap:20px; }
-          .footer-bottom { flex-direction:column; align-items:flex-start; gap:8px; }
+          .footer-top { grid-template-columns:1fr; gap:40px; padding:48px 20px 40px; }
+          .footer-right-col { flex-direction:row; flex-wrap:wrap; align-items:center; gap:16px; }
+          .footer-nav { flex-direction:row; flex-wrap:wrap; gap:16px; margin-bottom:0; }
+          .footer-apply-btn { white-space:nowrap; }
+          .footer-bottom { flex-direction:column; align-items:flex-start; gap:8px; padding:16px 20px; }
         }
         @media (max-width: 480px) {
           .hero-title { font-size:52px; }
