@@ -186,7 +186,7 @@ export default function Home() {
       <nav className="nav">
         <div className="nav-inner">
           <a href="/" className="nav-brand">
-            <img src="/sppg-logo.jpg" alt="SPPG" className="nav-logo-img" />
+            <img src="/sppg-logo.png" alt="SPPG" className="nav-logo-img" />
             <div className="nav-title">
               <span className="nav-sppg">SPPG</span>
               <span className="nav-wanted">#WANTED FOR NIGERIA</span>
@@ -583,7 +583,7 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand-col">
-            <img src="/sppg-logo.jpg" alt="SPPG" className="footer-logo-img" />
+            <img src="/sppg-logo.png" alt="SPPG" className="footer-logo-img" />
             <div className="footer-brand-text">
               <div className="footer-school">School of Politics, Policy &amp; Governance</div>
               <div className="footer-tag">#WantedForNigeria &middot; Class of 2027</div>
@@ -770,44 +770,7 @@ export default function Home() {
         .success-secondary-btn { display:block; width:100%; padding:14px 24px; background:transparent; color:var(--grey-light); font-family:var(--font-ui); font-size:14px; letter-spacing:0.5px; border:1px solid var(--border); border-radius:6px; cursor:pointer; text-align:center; text-decoration:none; transition:border-color 0.2s,color 0.2s; }
         .success-secondary-btn:hover { border-color:rgba(255,255,255,0.25); color:var(--white); }
 
-        /* FOOTER */
-        .footer { background:#080808; border-top:1px solid rgba(255,255,255,0.07); }
-        .footer-top {
-          max-width:1200px; margin:0 auto;
-          display:grid; grid-template-columns:260px 1fr 220px;
-          gap:64px; padding:72px 24px 64px; align-items:start;
-          border-bottom:1px solid rgba(255,255,255,0.06);
-        }
-        .footer-brand-col { display:flex; flex-direction:column; gap:16px; }
-        .footer-logo-img { height:48px; width:auto; object-fit:contain; }
-        .footer-brand-text { display:flex; flex-direction:column; gap:4px; }
-        .footer-school { font-family:var(--font-ui); font-size:14px; font-weight:700; color:var(--white); letter-spacing:0.3px; }
-        .footer-tag { font-family:var(--font-ui); font-size:12px; color:var(--gold); letter-spacing:1px; }
-        .footer-col-label { font-family:var(--font-ui); font-size:10px; font-weight:700; letter-spacing:3px; color:var(--grey); text-transform:uppercase; margin-bottom:16px; }
-        .footer-middle-col { display:flex; flex-direction:column; }
-        .footer-mission { font-family:var(--font-body); font-size:15px; color:rgba(255,255,255,0.4); line-height:1.7; margin-bottom:12px; }
-        .footer-scholarship { font-family:var(--font-ui); font-size:13px; color:rgba(212,160,23,0.6); line-height:1.6; font-weight:300; }
-        .footer-right-col { display:flex; flex-direction:column; }
-        .footer-nav { display:flex; flex-direction:column; gap:12px; margin-bottom:24px; }
-        .footer-nav a { font-family:var(--font-ui); font-size:13px; color:var(--grey); transition:color 0.2s; letter-spacing:0.3px; }
-        .footer-nav a:hover { color:var(--white); }
-        .footer-apply-btn {
-          display:block; padding:12px 20px; background:var(--red);
-          color:var(--white); font-family:var(--font-ui); font-size:13px;
-          font-weight:700; letter-spacing:1px; text-transform:uppercase;
-          border-radius:4px; text-align:center;
-          transition:background 0.2s, transform 0.1s;
-          box-shadow:0 2px 12px rgba(204,17,17,0.3);
-        }
-        .footer-apply-btn:hover { background:var(--red-dark); transform:translateY(-1px); }
-        .footer-bottom {
-          max-width:1200px; margin:0 auto;
-          display:flex; justify-content:space-between; align-items:center;
-          padding:20px 24px; flex-wrap:wrap; gap:12px;
-        }
-        .footer-copy { font-family:var(--font-ui); font-size:11px; color:rgba(255,255,255,0.18); letter-spacing:0.3px; }
-        .footer-hashtag { font-family:var(--font-display); font-size:20px; color:var(--red); letter-spacing:2px; }
-
+        
         /* RESPONSIVE */
         @media (max-width: 768px) {
           .nav-wanted { font-size:15px; }
