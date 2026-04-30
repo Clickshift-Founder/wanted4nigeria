@@ -240,7 +240,7 @@ export default function Home() {
               fix what&apos;s broken.
             </p>
             <p className="campaign-body scholarship-line">
-              <strong>40% scholarships available.</strong> Don&apos;t let funding be the reason Nigeria loses you.
+              <strong>partial scholarships available.</strong> Don&apos;t let funding be the reason Nigeria loses you.
             </p>
           </div>
 
@@ -315,7 +315,7 @@ export default function Home() {
                 </h2>
                 <p className="success-body">
                   Nigeria is waiting for people like you. The next step is your application.
-                  Take it now &mdash; <strong>40% scholarships available</strong>.
+                  Take it now &mdash; <strong>partial scholarships available</strong>.
                 </p>
                 <a
                   href="https://nigeria.thesppg.org/apply"
@@ -596,7 +596,7 @@ export default function Home() {
               Nigeria doesn&apos;t have a resource problem.<br />It has a leadership problem.
             </p>
             <p className="footer-scholarship">
-              40% scholarships available &mdash; don&apos;t let funding be the reason Nigeria loses you.
+              partial scholarships available &mdash; don&apos;t let funding be the reason Nigeria loses you.
             </p>
           </div>
 
