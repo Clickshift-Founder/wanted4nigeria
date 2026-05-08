@@ -672,7 +672,7 @@ export default function Home() {
         .nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,10,10,0.94); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.06); }
         .nav-inner { max-width:1200px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; justify-content:space-between; }
         .nav-brand { display:flex; align-items:center; gap:12px; }
-        .nav-logo-img { height:40px; width:auto; object-fit:contain; flex-shrink:0; }
+        .nav-logo-img { height:40px; width:auto; object-fit:contain; flex-shrink:0; filter: brightness(0) invert(1);}
         .nav-logo-blocks { display:grid; grid-template-columns:1fr 1fr; gap:2px; width:30px; height:30px; border-radius:4px; overflow:hidden; flex-shrink:0; }
         .nav-logo-blocks span { display:block; }
         .nav-title { display:flex; flex-direction:column; line-height:1.1; }
