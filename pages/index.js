@@ -270,6 +270,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* VIDEO */}
+      <section className="video-section">
+        <div className="video-section-inner">
+          <div className="tv-frame">
+            <div className="tv-screen">
+              <iframe
+                src="https://www.youtube.com/embed/kuhvEVLJ1kQ?autoplay=1&mute=1&loop=1&playlist=kuhvEVLJ1kQ&controls=1&disablekb=0&fs=0&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3"
+                title="Wanted For Nigeria"
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SCOREBOARD */}
       <section className="scoreboard">
         <div className="scoreboard-inner">
@@ -283,20 +300,20 @@ export default function Home() {
             <div className="score-mission">leaders</div>
           </div>
           <div className="score-block">
-            <div className="score-number">{score.applications.toLocaleString()}</div>
-            <div className="score-label">Applied</div>
+            <div className="score-number score-togo">
+              {Math.max(0, 1000 - score.nominations).toLocaleString()}
+            </div>
+            <div className="score-label">To Go</div>
           </div>
         </div>
         <div className="scoreboard-bar">
           <div
             className="scoreboard-fill"
-            style={{ width: `${Math.min(100, Math.max(0.3, (score.applications / 1000) * 100))}%` }}
+            style={{ width: `${Math.min(100, Math.max(0.3, (score.nominations / 1000) * 100))}%` }}
           />
         </div>
         <div className="scoreboard-pct">
-          <span className="scoreboard-remaining">{Math.max(0, 1000 - score.applications).toLocaleString()} to go</span>
-          <span className="scoreboard-dot">·</span>
-          <span>{((score.applications / 1000) * 100).toFixed(1)}% of the way there</span>
+          {((score.nominations / 1000) * 100).toFixed(1)}% of the way there
         </div>
       </section>
 
@@ -627,6 +644,8 @@ export default function Home() {
         </div>
       </footer>
 
+
+      
       <style jsx global>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -700,6 +719,65 @@ export default function Home() {
         .cta-btn-title { font-family:var(--font-display); font-size:24px; letter-spacing:0.5px; display:block; line-height:1; }
         .cta-btn-sub { font-family:var(--font-ui); font-size:13px; font-weight:300; opacity:0.75; letter-spacing:0.5px; display:block; }
 
+
+        /* VIDEO SECTION */
+        .video-section {
+          background: var(--bg);
+          padding: 72px 24px;
+          border-top: 1px solid var(--border);
+        }
+        .video-section-inner {
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        .tv-frame {
+          background: #111;
+          border-radius: 16px;
+          padding: 16px 16px 10px;
+          box-shadow:
+            0 0 0 3px #222,
+            0 0 0 5px #333,
+            0 32px 80px rgba(0,0,0,0.7),
+            0 8px 24px rgba(0,0,0,0.5);
+          position: relative;
+        }
+        .tv-frame::before {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 4px;
+          background: #2a2a2a;
+          border-radius: 2px;
+          margin: 0 auto 10px;
+        }
+        .tv-screen {
+          position: relative;
+          width: 100%;
+          padding-top: 56.25%;
+          border-radius: 8px;
+          overflow: hidden;
+          background: #000;
+        }
+        .tv-screen iframe {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+        .tv-frame::after {
+          content: '';
+          display: block;
+          width: 60px;
+          height: 8px;
+          background: #1a1a1a;
+          border-radius: 0 0 4px 4px;
+          margin: 10px auto 0;
+        }
+
+        /* SCOREBOARD */
+        .score-togo { color: var(--red-light); }
+
         /* SCOREBOARD */
         .scoreboard { background:var(--bg); padding:72px 24px 56px; border-top:1px solid var(--border); text-align:center; }
         .scoreboard-inner { display:flex; justify-content:center; align-items:center; gap:64px; max-width:800px; margin:0 auto 36px; }
@@ -711,9 +789,7 @@ export default function Home() {
         .score-target { font-family:var(--font-display); font-size:clamp(40px,6vw,64px); color:var(--gold); line-height:1.1; }
         .scoreboard-bar { max-width:600px; margin:0 auto 14px; height:5px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden; }
         .scoreboard-fill { height:100%; background:linear-gradient(to right,var(--red),var(--gold)); border-radius:3px; transition:width 1.2s ease; min-width:3px; }
-        .scoreboard-pct { font-family:var(--font-ui); font-size:13px; color:var(--grey); letter-spacing:1px; display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
-        .scoreboard-remaining { color:var(--white); font-weight:700; font-size:15px; }
-        .scoreboard-dot { color:var(--border); font-size:18px; }
+        .scoreboard-pct { font-family:var(--font-ui); font-size:12px; color:var(--grey); letter-spacing:1px; }
 
         /* FORM SECTION */
         .form-section { background:var(--bg-2); border-top:1px solid var(--border); padding:72px 24px 88px; }
@@ -784,6 +860,8 @@ export default function Home() {
           .campaign-text { order:1; }
           .campaign-ctas { order:2; }
           .campaign-heading { font-size:34px; }
+          .video-section { padding: 48px 20px; }
+          .tv-frame { padding: 10px 10px 6px; border-radius: 10px; }
           .scoreboard { padding:56px 20px 44px; }
           .scoreboard-inner { gap:28px; }
           .score-number { font-size:60px; }
