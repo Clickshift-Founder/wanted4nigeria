@@ -7,7 +7,7 @@ const CHARGES = [
   'JUSTICE', 'TRUTH', 'FREEDOM', 'EQUITY', 'CAPACITY', 'CARE',
   'COURAGE', 'EFFICIENCY', 'SECURITY', 'SAFETY', 'INNOVATION',
   'RELIABILITY', 'HUMANITY', 'DELIVERY', 'INCLUSION', 'POTENTIAL',
-  'STEWARDSHIP', 'DISCIPLINE', 'EXCELLENCE',
+  'STEWARDSHIP', 'DISCIPLINE', 'EXCELLENCE', 'Not being Corrupt',
 ];
 
 const NOMINATOR_TYPES = [
@@ -288,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* SCOREBOARD */}
-      <section className="scoreboard">
+      {/* <section className="scoreboard">
         <div className="scoreboard-inner">
           <div className="score-block">
             <div className="score-number">{score.nominations.toLocaleString()}</div>
@@ -315,7 +315,7 @@ export default function Home() {
         <div className="scoreboard-pct">
           {((score.nominations / 1000) * 100).toFixed(1)}% of the way there
         </div>
-      </section>
+      </section> */}
 
       {/* FORM SECTION */}
       {activeForm && (
